@@ -14,7 +14,7 @@ class BookingRepository implements BookingRepositoryInterface
         return $availableSlots;
     }
 
-    public function bookSlot($bookingDTO)
+    public function bookSlot($bookingDTO): Appointment
     {
         // book a slot
         $slot = Slot::find($bookingDTO->slotId);
@@ -28,5 +28,7 @@ class BookingRepository implements BookingRepositoryInterface
         $appointment->patient_name = $bookingDTO->patientName;
         $appointment->reserved_at = $bookingDTO->reservedAt;
         $appointment->save();
+
+        return $appointment;
     }
 }

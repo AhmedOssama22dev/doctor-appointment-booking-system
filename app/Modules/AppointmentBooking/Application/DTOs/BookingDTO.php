@@ -4,17 +4,17 @@ namespace App\Modules\AppointmentBooking\Application\DTOs;
 
 class BookingDTO {
     public $Id;
-    public $SlotId;
-    public $PatientId;
-    public $PatientName;
-    public $ReservedAt;
+    public $slotId;
+    public $patientId;
+    public $patientName;
+    public $reservedAt;
     
-    public function __construct($Id, $SlotId, $PatientId, $PatientName, $ReservedAt = now()) {
+    public function __construct($Id, $slotId, $patientId, $patientName, $reservedAt = now()) {
         $this->Id = $Id;
-        $this->SlotId = $SlotId;
-        $this->PatientId = $PatientId;
-        $this->PatientName = $PatientName;
-        $this->ReservedAt = $ReservedAt;
+        $this->slotId = $slotId;
+        $this->patientId = $patientId;
+        $this->patientName = $patientName;
+        $this->reservedAt = $reservedAt;
     }
 
 }
