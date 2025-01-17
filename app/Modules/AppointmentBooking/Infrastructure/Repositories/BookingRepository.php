@@ -20,13 +20,14 @@ class BookingRepository implements BookingRepositoryInterface
         $slot = Slot::find($bookingDTO->slotId);
         $slot->is_reserved = true;
         $slot->save();
-        
+
         // create an appointment
         $appointment = new Appointment();
         $appointment->slot_id = $bookingDTO->slotId;
         $appointment->patient_id = $bookingDTO->patientId;
         $appointment->patient_name = $bookingDTO->patientName;
         $appointment->reserved_at = $bookingDTO->reservedAt;
+        $appointment->guid = \Str::uuid();
         $appointment->save();
 
         return $appointment;
