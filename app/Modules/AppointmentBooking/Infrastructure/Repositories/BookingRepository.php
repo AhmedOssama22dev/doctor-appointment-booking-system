@@ -10,7 +10,7 @@ class BookingRepository implements BookingRepositoryInterface
     public function getAvailableSlots()
     {
         // get available slots
-        $availableSlots = Slot::where('is_reserved', false)->get();
+        $availableSlots =  Slot::available()->get();
         return $availableSlots;
     }
 
