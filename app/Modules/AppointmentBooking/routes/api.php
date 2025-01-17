@@ -3,7 +3,7 @@ namespace App\Modules\AppointmentBooking\Routes;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Modules\AppointmentBooking\Http\Controllers\AppointmentBookingController;
+use App\Modules\AppointmentBooking\Presentation\Http\Controllers\AppointmentBookingController;
 
 // Add prefix
 Route::prefix('patient')->group(function () {

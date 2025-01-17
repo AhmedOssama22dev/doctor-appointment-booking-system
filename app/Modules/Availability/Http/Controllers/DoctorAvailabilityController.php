@@ -2,6 +2,7 @@
 
 namespace App\Modules\Availability\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Routing\Controller as BaseController;
@@ -36,6 +37,7 @@ class DoctorAvailabilityController extends BaseController
         }
         
         $data = $request->all();
+        $data['guid'] = Str::uuid();
         $this->availabilityService->createDoctorAvailabilitySlot($data);
         return response()->json(['message' => 'Doctor availability slot created']);
     }
