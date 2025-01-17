@@ -27,7 +27,7 @@ class DoctorAvailabilityApiTest extends TestCase
             ]);
         });
 
-        $response = $this->getJson('api/doctor/availability/slots');
+        $response = $this->getJson(route('doctor.availability.index'));
 
         $response->assertStatus(200)
                  ->assertJsonStructure([
@@ -45,7 +45,7 @@ class DoctorAvailabilityApiTest extends TestCase
             'cost' => 200
         ];
 
-        $response = $this->postJson('api/doctor/availability/slot', $data);
+        $response = $this->postJson(route('doctor.availability.store'), $data);
 
         $response->assertStatus(200)
                  ->assertJson(['message' => 'Doctor availability slot created']);

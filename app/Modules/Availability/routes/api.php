@@ -7,6 +7,6 @@ use App\Modules\Availability\Http\Controllers\DoctorAvailabilityController;
 
 // Add prefix
 Route::prefix('doctor/availability')->group(function () {
-    Route::get('slots', [DoctorAvailabilityController::class, 'index']);
-    Route::post('slot', [DoctorAvailabilityController::class, 'store']);
+    Route::get('slots', [DoctorAvailabilityController::class, 'index'])->name('doctor.availability.index');
+    Route::post('slot', [DoctorAvailabilityController::class, 'store'])->name('doctor.availability.store');    
 });
