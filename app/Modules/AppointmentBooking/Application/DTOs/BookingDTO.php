@@ -9,7 +9,7 @@ class BookingDTO {
     public $patientName;
     public $reservedAt;
     
-    public function __construct($Id, $slotId, $patientId, $patientName, $reservedAt = now()) {
+    public function __construct($Id, $slotId, $patientId, $patientName, $reservedAt = null) {
         $this->Id = $Id;
         $this->slotId = $slotId;
         $this->patientId = $patientId;
