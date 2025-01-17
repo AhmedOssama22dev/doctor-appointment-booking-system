@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Modules\Availability\Tests\Feature;
+namespace App\Modules\Availability\Tests\routes\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
