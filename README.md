@@ -1,66 +1,82 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+**Description**
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+You are tasked with creating a backend system for a doctor appointment booking application. The system will be designed for a specific single doctor and should handle the logic behind managing and booking appointments. The project focuses on implementing the necessary APIs and functionality to meet the business requirements.
 
-## About Laravel
+**Business Requirements:**
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Your application should adhere to the following business requirements:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1.  **Doctor Availability:**
+    
+    1.  As a doctor, I want to be able to list my slots
+        
+    2.  As a doctor, I want to be able to add new slots where a single time slot should have the following:
+        
+        1.  Id: Guid
+            
+        2.  Time: Date → 22/02/2023 04:30 pm
+            
+        3.  DoctorId: Guid
+            
+        4.  DoctorName: string
+            
+        5.  IsReserved: bool
+            
+        6.  Cost: Decimal
+            
+2.  **Appointment Booking:**
+    
+    1.  As a **Patient,** I want to be able to **view** all doctors' available (only) **slots**
+        
+    2.  As a **Patient,** I want to be able to **book** an appointment on a free **slot where.** An Appointment should have the following:
+        
+        1.  Id: Guid
+            
+        2.  SlotId: Guid
+            
+        3.  PatientId: Guid
+            
+        4.  PatientName: string
+            
+        5.  ReservedAt: Date
+            
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1.  **Appointment Confirmation:**
+    
+    1.  Once a patient schedules an appointment, the system should send a confirmation notification to the **patient** and the **doctor**
+        
+    2.  The confirmation notification should include the appointment details, such as the patient's name, appointment time, and Doctor's name.
+        
+    3.  For the sake of this assessment, the notification could be just a **Log message**
+        
+2.  **Doctor Appointment Management:**
+    
+    1.  As a Doctor, I want to be able to view my upcoming **appointments**.
+        
+    2.  As a Doctor, I want to be able to mark appointments as **completed** or **cancel** them if necessary.
+        
+3.  **Data Persistence:**
+    
+    1.  Use any db engine or even **in-memory list** with no db at all
+        
 
-## Learning Laravel
+#### **Specifications:**
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+1.  You don’t need to care about authentication or authorization, make it public APIs
+    
+2.  Assume the system is serving a single Doctor only
+    
+3.  Apply **modular monolith architecture**
+    
+4.  The system should consist of **four** modules each with a different architecture as follows:
+    
+    1.  **Doctor Availability Module**: Traditional Layered Architecture
+        
+    2.  **Appointment Booking Module**: Clean architecture
+        
+    3.  **Appointment Confirmation Module**: Simplest architecture possible
+        
+    4.  **Doctor Appointment Management:** Hexagonal Architecture
+        
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**(A plus** **point**)Write unit and integration testing
