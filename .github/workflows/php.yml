@@ -42,4 +42,4 @@ jobs:
       run: ls -R app/Modules/AppointmentBooking/tests || echo "Test directory missing"
 
     - name: Run PHPUnit tests
-      run: vendor/bin/phpunit --testdox
+      run: vendor/bin/phpunit --testdox --dont-report-useless-tests
