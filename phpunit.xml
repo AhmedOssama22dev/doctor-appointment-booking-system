@@ -8,10 +8,15 @@
         <testsuite name="Unit">
             <directory>tests/Unit</directory>
             <directory>app/Modules/AppointmentBooking/tests/Unit</directory>
+            <directory>app/Modules/Availability/tests/Unit</directory>
+            <directory>app/Modules/AppointmentManagement/tests/Unit</directory>
         </testsuite>
         <testsuite name="Feature">
             <directory>tests/Feature</directory>
             <directory>app/Modules/AppointmentBooking/tests/Feature</directory>
+            <directory>app/Modules/Availability/tests/Feature</directory>
+            <directory>app/Modules/AppointmentManagement/tests/Feature</directory>
+
         </testsuite>
     </testsuites>
     <source>
