@@ -1,0 +1,92 @@
+{
+    "info": {
+        "_postman_id": "b6d8bea0-6c4d-4a34-bbf7-45ac85800a83",
+        "name": "Doctor booking",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Doctor appointment management",
+            "item": [
+                {
+                    "name": "Get upcoming appointments",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{BASE_URL}}/api/doctor/appointment-management/upcoming-appointments"
+                    }
+                },
+                {
+                    "name": "Cancel appointment",
+                    "request": {
+                        "method": "PUT",
+                        "url": "{{BASE_URL}}/api/doctor/appointment-management/appointments/1/cancel"
+                    }
+                },
+                {
+                    "name": "Complete appointment",
+                    "request": {
+                        "method": "PUT",
+                        "url": "{{BASE_URL}}/api/doctor/appointment-management/appointments/1/complete"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Doctor availability",
+            "item": [
+                {
+                    "name": "Doctor Get all slots",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{BASE_URL}}/api/doctor/availability/slots"
+                    }
+                },
+                {
+                    "name": "Doctor create new slot",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{BASE_URL}}/api/doctor/availability/slot",
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"time\":\"2025-12-01 11:00\",\n  \"cost\":\"100\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Appointment Management",
+            "item": [
+                {
+                    "name": "Patient book a slot",
+                    "request": {
+                        "method": "POST",
+                        "url": "{{BASE_URL}}/api/patient/book-slot",
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"slot_id\":\"4\",\n  \"patient_id\":\"1\",\n  \"patient_name\":\"Ahmed\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Patient show available slots",
+                    "request": {
+                        "method": "GET",
+                        "url": "{{BASE_URL}}/api/patient/available-slots"
+                    }
+                }
+            ]
+        }
+    ]
+}
