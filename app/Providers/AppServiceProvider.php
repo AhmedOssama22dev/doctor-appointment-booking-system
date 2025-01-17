@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
-use App\Modules\AppointmentBooking\Domain\Repositories\BookingRepositoryInterface;
-use App\Modules\AppointmentBooking\Infrastructure\Repositories\BookingRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Modules\AppointmentBooking\Infrastructure\Repositories\BookingRepository;
+use App\Modules\AppointmentBooking\Domain\Repositories\BookingRepositoryInterface;
+use App\Modules\AppointmentManagement\Domain\Repository\AppointmentRepositoryInterface as AppointmentManagementRepositoryInterface;
+use App\Modules\AppointmentManagement\Infrastructure\Presistence\AppointmentRepository as AppointmentManagementRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,10 +15,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // bind the BookingRepositoryInterface to the BookingRepository
         $this->app->bind(
             BookingRepositoryInterface::class,
             BookingRepository::class
+        );
+        $this->app->bind(
+            AppointmentManagementRepositoryInterface::class,
+            AppointmentManagementRepository::class
         );
     }
 
