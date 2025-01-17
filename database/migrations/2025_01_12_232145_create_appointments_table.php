@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('guid')->unique();
             $table->foreignId('slot_id')->constrained('slots');
-            $table->foreignId('patient_id')->constrained('users');
+            $table->foreignId('patient_id');
             $table->string('patient_name');
             $table->timestamp('reserved_at');
             $table->softDeletes();
